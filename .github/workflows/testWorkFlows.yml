@@ -1,0 +1,14 @@
+name: testWorkflows
+on: push
+jobs:
+  build:
+    # операционная система для работы воркфлоу
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: setup
+        run: make setup
+      - name: test
+        run: make test
+      - name: lint
+        run: make lint 
