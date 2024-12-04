@@ -6,9 +6,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+        node-version: '18.x'
+        cache: 'npm'
+      - run: npm ci
       - name: setup
         run: make setup
       - name: test
         run: make test
       - name: lint
-        run: make lint 
+        run: make lint
